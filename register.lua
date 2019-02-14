@@ -69,9 +69,9 @@ function stealthnode.register_stealthnode(modname, node)
     minetest.register_craft({
         output = 'mesecons_stealthnode:' .. modname .. "_" .. node .. ' 4',
         recipe = {
-            {"default:steel_ingot", modname .. ":" .. node, "default:steel_ingot"},
+            {"default:tin_ingot", modname .. ":" .. node, "default:tin_ingot"},
             {modname .. ":" .. node, "group:mesecon_conductor_craftable", modname .. ":" .. node},
-            {"default:steel_ingot", modname .. ":" .. node, "default:steel_ingot"},
+            {"default:tin_ingot", modname .. ":" .. node, "default:tin_ingot"},
         }
     })
 
