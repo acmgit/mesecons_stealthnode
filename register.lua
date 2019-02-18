@@ -14,7 +14,7 @@
 
 function stealthnode.register_stealthnode(modname, node)
     
-    tile = ""
+    local tile = ""
     
     if minetest.registered_nodes[modname .. ":" .. node] == nil then 
         print("[MOD] " .. minetest.get_current_modname() .. ": " .. modname .. ":" .. node .. " not found to register a stealthnode.")
