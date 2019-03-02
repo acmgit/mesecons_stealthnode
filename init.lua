@@ -57,8 +57,9 @@ local snodes = {
 
             }
 
+local register = stealthnode.register_stealthnode
 for i,value in pairs(snodes) do
-    stealthnode.register_stealthnode(value[1], value[2])
+    register(value[1], value[2])
 
 end
 
