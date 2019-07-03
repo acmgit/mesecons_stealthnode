@@ -25,13 +25,15 @@ function stealthnode.register_stealthnode(modname, node)
         
     end
         
+    local newgroup = {}
+    newgroup = stealthnode.table_clone(minetest.registered_nodes[modname .. ":" .. node].groups)
     
     minetest.register_node("mesecons_stealthnode:" .. modname .. "_" .. node, {
         description="Stealthnode " .. minetest.registered_nodes[modname .. ":" .. node].description,
         tiles = tile,
         is_ground_content = false,
         inventory_image = tile,
-        groups = {cracky=3},
+        groups = newgroup,
         sounds = minetest.registered_nodes[modname .. ":" .. node].sounds,
         mesecons = {conductor = {
                     state = mesecon.state.off,
@@ -76,3 +78,15 @@ function stealthnode.register_stealthnode(modname, node)
     })
 
 end -- function stealthnode.register_stealth_node(
+
+
+function stealthnode.table_clone(c_table)
+  local t2 = {}
+  for k,v in pairs(c_table) do
+    t2[k] = v
+    
+  end
+  
+  return t2
+  
+end -- function cucina_vegana.table_clone
