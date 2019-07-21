@@ -1,17 +1,13 @@
 --[[
-    ********************************************
-    ***          Mesecons Stealthnodes        **
-    ********************************************
-
- A mod for Minetest to register various Ghoststones.
-
+       ********************************************
+       **                                        **
+       **           Stealthnode-Register         **
+       **                                        **
+       **        Helpmod for Stealthnode to      **
+       **      easy Register new Stealthnodes    **
+       **                                        **
+       ********************************************
 ]]--
-
-stealthnode = {}
-stealthnode.version = "1"
-stealthnode.revision = "0"
-
-dofile(minetest.get_modpath(minetest.get_current_modname()) .. "/register.lua")
 
 local snodes = {
                 {"default", "cobble"},
@@ -54,14 +50,17 @@ local snodes = {
 
                 {"default", "acacia_wood"},
                 {"default", "acacia_tree"},
+    
+                {"moreores", "mithril_block"},
 
             }
 
 local register = stealthnode.register_stealthnode
 for i,value in pairs(snodes) do
-    register(value[1], value[2])
-
-end
-
-print("[MOD] " .. minetest.get_current_modname() .. " loaded.")
-minetest.log("info", "[MOD] " .. minetest.get_current_modname() .. " loaded.")
+    if(minetest.registered_nodes[value[1]..":"..value[2]]) then
+        register(value[1], value[2])
+    else
+        minetest.log("info","[MOD]stealthnode: Node " .. value[1]..":"..value[2].." not found to register a Stealthnode.")
+    end -- if(mintest.registered_nodes
+    
+end -- for i,value

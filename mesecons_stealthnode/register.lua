@@ -28,7 +28,7 @@ function stealthnode.register_stealthnode(modname, node)
     local newgroup = {}
     newgroup = stealthnode.table_clone(minetest.registered_nodes[modname .. ":" .. node].groups)
     
-    minetest.register_node("mesecons_stealthnode:" .. modname .. "_" .. node, {
+    minetest.register_node(":mesecons_stealthnode:" .. modname .. "_" .. node, {
         description="Stealthnode " .. minetest.registered_nodes[modname .. ":" .. node].description,
         tiles = tile,
         is_ground_content = false,
@@ -43,7 +43,7 @@ function stealthnode.register_stealthnode(modname, node)
         on_blast = mesecon.on_blastnode,
     })
 
-    minetest.register_node("mesecons_stealthnode:" .. modname .. "_" .. node .. "_active", {
+    minetest.register_node(":mesecons_stealthnode:" .. modname .. "_" .. node .. "_active", {
         drawtype = "airlike",
         pointable = false,
         walkable = false,
