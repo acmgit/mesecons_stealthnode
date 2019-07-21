@@ -1,8 +1,8 @@
---[[ 
+--[[
     ********************************************
     ***          Register Stealthnodes        **
     ********************************************
-    
+
     Registers a new Ghoststone with the tile of the given Node.
 
     stealthnode.register_stealthnode(Name, Node)
@@ -13,21 +13,22 @@
 ]]--
 
 function stealthnode.register_stealthnode(modname, node)
-    
-    local tile = ""
-    
-    if minetest.registered_nodes[modname .. ":" .. node] == nil then 
-        print("[MOD] " .. minetest.get_current_modname() .. ": " .. modname .. ":" .. node .. " not found to register a stealthnode.")
-        minetest.log("warning", "[MOD] " .. minetest.get_current_modname() .. ": " .. modname .. ":" .. node .. " not found to register a stealthnode.")
+
+    local tile
+
+    if minetest.registered_nodes[modname .. ":" .. node] == nil then
+        print("[MOD] " .. minetest.get_current_modname() .. ": "
+              .. modname .. ":" .. node .. " not found to register a stealthnode.")
+        minetest.log("warning", "[MOD] " .. minetest.get_current_modname() .. ": "
+                      .. modname .. ":" .. node .. " not found to register a stealthnode.")
         return
     else
         tile = minetest.registered_nodes[modname .. ":" .. node].tiles
-        
+
     end
-        
-    local newgroup = {}
-    newgroup = stealthnode.table_clone(minetest.registered_nodes[modname .. ":" .. node].groups)
-    
+
+    local newgroup = stealthnode.table_clone(minetest.registered_nodes[modname .. ":" .. node].groups)
+
     minetest.register_node(":mesecons_stealthnode:" .. modname .. "_" .. node, {
         description="Stealthnode " .. minetest.registered_nodes[modname .. ":" .. node].description,
         tiles = tile,
@@ -84,9 +85,9 @@ function stealthnode.table_clone(c_table)
   local t2 = {}
   for k,v in pairs(c_table) do
     t2[k] = v
-    
+
   end
-  
+
   return t2
-  
+
 end -- function cucina_vegana.table_clone

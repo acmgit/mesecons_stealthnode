@@ -38,7 +38,7 @@ local snodes = {
 
                 {"default", "wood"},
                 {"default", "tree"},
-    
+
                 {"default", "junglewood"},
                 {"default", "jungletree"},
 
@@ -50,7 +50,7 @@ local snodes = {
 
                 {"default", "acacia_wood"},
                 {"default", "acacia_tree"},
-    
+
                 {"moreores", "mithril_block"},
 
             }
@@ -60,7 +60,7 @@ for i,value in pairs(snodes) do
     if(minetest.registered_nodes[value[1]..":"..value[2]]) then
         register(value[1], value[2])
     else
-        minetest.log("info","[MOD]stealthnode: Node " .. value[1]..":"..value[2].." not found to register a Stealthnode.")
+        minetest.log("info","[MOD]stealthnode:Node ".. value[1]..":"..value[2].." not found to register a Stealthnode.")
     end -- if(mintest.registered_nodes
-    
+
 end -- for i,value
