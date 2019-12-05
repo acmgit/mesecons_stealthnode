@@ -2,7 +2,10 @@ unused_args = false
 allow_defined_top = true
 
 globals = {
-    "minetest","mesecons_stealthnode","mesecons_random"
+    "minetest",
+    "mesecons_stealthnode",
+    "mesecons_random",
+    "stealthnode"
 }
 
 read_globals = {
@@ -14,5 +17,6 @@ read_globals = {
     "dump", "DIR_DELIM", "VoxelArea", "Settings",
 
     -- MTG
-    "default"
+    "default",
+    "mesecon"
 }
