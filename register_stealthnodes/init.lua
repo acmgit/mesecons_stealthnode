@@ -15,6 +15,9 @@ local snodes = {
                 {"default", "stonebrick"},
                 {"default", "stone_block"},
 
+                {"default", "glass"},
+                {"default", "obsidian_glass"},
+
                 {"default", "desert_cobble"},
                 {"default", "desert_stone"},
                 {"default", "desert_stonebrick"},

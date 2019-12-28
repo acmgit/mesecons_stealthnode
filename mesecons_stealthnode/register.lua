@@ -14,9 +14,10 @@
 
 function stealthnode.register_stealthnode(modname, node)
 
+    local nodedef = minetest.registered_nodes[modname .. ":" .. node]
     local tile
 
-    if minetest.registered_nodes[modname .. ":" .. node] == nil then
+    if nodedef == nil then
         print("[MOD] " .. minetest.get_current_modname() .. ": "
               .. modname .. ":" .. node .. " not found to register a stealthnode.")
         minetest.log("warning", "[MOD] " .. minetest.get_current_modname() .. ": "
@@ -27,11 +28,14 @@ function stealthnode.register_stealthnode(modname, node)
 
     end
 
-    local newgroup = stealthnode.table_clone(minetest.registered_nodes[modname .. ":" .. node].groups)
+    local newgroup = stealthnode.table_clone(nodedef.groups)
 
     minetest.register_node(":mesecons_stealthnode:" .. modname .. "_" .. node, {
-        description="Stealthnode " .. minetest.registered_nodes[modname .. ":" .. node].description,
+        description="Stealthnode " .. nodedef.description,
         tiles = tile,
+        drawtype = nodedef.drawtype,
+        sunlight_propagates = nodedef.sunlight_propagates,
+        paramtype = nodedef.paramtype,
         is_ground_content = false,
         inventory_image = tile,
         groups = newgroup,
@@ -60,7 +64,7 @@ function stealthnode.register_stealthnode(modname, node)
         }},
         on_construct = function(pos)
             -- remove shadow
-            shadowpos = vector.add(pos, vector.new(0, 1, 0))
+            local shadowpos = vector.add(pos, vector.new(0, 1, 0))
             if (minetest.get_node(shadowpos).name == "air") then
                 minetest.dig_node(shadowpos)
             end
