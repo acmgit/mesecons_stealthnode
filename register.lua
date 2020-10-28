@@ -10,13 +10,30 @@
 ]]--
 
 local snodes = {
+
+		{"default", "dirt"},
+		{"default", "dry_dirt"},
+		{"default", "permafrost"},
+		
+		{"default", "sand"},
+		{"default", "silver_sand"},
+		{"default", "desert_sand"},
+		
+		{"default", "gravel"},
+		{"default", "clay"},
+		{"default", "snowblock"},
+		
+		{"default", "ice"},
+		{"default", "cave_ice"},
+		
                 {"default", "cobble"},
                 {"default", "stone"},
                 {"default", "stonebrick"},
                 {"default", "stone_block"},
-
-                {"default", "glass"},
-                {"default", "obsidian_glass"},
+		{"default", "mossycobble"},
+		
+                --{"default", "glass"},
+                --{"default", "obsidian_glass"},
 
                 {"default", "desert_cobble"},
                 {"default", "desert_stone"},
@@ -38,21 +55,23 @@ local snodes = {
                 {"default", "obsidian"},
                 {"default", "obsidianbrick"},
                 {"default", "obsidian_block"},
-
+		
+		{"default", "coral_skeleton"},
+		
                 {"default", "wood"},
-                {"default", "tree"},
+                --{"default", "tree"},
 
                 {"default", "junglewood"},
-                {"default", "jungletree"},
+                --{"default", "jungletree"},
 
                 {"default", "aspen_wood"},
-                {"default", "aspen_tree"},
+                --{"default", "aspen_tree"},
 
                 {"default", "pine_wood"},
-                {"default", "pine_tree"},
+                --{"default", "pine_tree"},
 
                 {"default", "acacia_wood"},
-                {"default", "acacia_tree"},
+                --{"default", "acacia_tree"},
 
                 {"moreores", "mithril_block"},
 
@@ -61,7 +80,7 @@ local snodes = {
 local register = stealthnode.register_stealthnode
 for i,value in pairs(snodes) do
     if(minetest.registered_nodes[value[1]..":"..value[2]]) then
-        register(value[1], value[2])
+	register(value[1], value[2])
     else
         minetest.log("info","[MOD]stealthnode:Node ".. value[1]..":"..value[2].." not found to register a Stealthnode.")
     end -- if(mintest.registered_nodes
