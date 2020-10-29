@@ -3,9 +3,6 @@ allow_defined_top = true
 
 globals = {
     "minetest",
-    "mesecons_stealthnode",
-    "mesecons_random",
-    "stealthnode"
 }
 
 read_globals = {
@@ -16,7 +13,7 @@ read_globals = {
     "vector", "ItemStack",
     "dump", "DIR_DELIM", "VoxelArea", "Settings",
 
-    -- MTG
+    -- Mod deps
     "default",
-    "mesecon"
+    "mesecon",
 }
