@@ -76,7 +76,11 @@ function stealthnode.register_stealthnode(modname, node)
 		walkable = false,
 		diggable = false,
 		drop = stealthnode_name,
-		groups = {mesecons_stealthnode_active = 1, not_in_creative_inventory = 1},
+		groups = {
+			mesecons_stealthnode_active = 1,
+			not_in_creative_inventory = 1,
+			not_blocking_trains = 1
+		},
 		mesecons = {
 			conductor = {
 				state = mesecon.state.on,
