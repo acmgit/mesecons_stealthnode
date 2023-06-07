@@ -16,6 +16,9 @@ The function to register your own ghoststones are integrated.<br>
 
 Move your Download to the Mods-Folder.<br>
 
+## Version
+V 1.6
+
 ## Depends
 
 default<br>

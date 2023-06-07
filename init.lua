@@ -14,7 +14,7 @@ stealthnode.revision = "6"
 local modpath = minetest.get_modpath("mesecons_stealthnodes")
 local S = minetest.get_translator(minetest.get_current_modname())
 
-stealhnode.S = S
+stealthnode.S = S
 
 dofile(modpath .. "/register.lua")
 dofile(modpath .. "/nodes.lua")
