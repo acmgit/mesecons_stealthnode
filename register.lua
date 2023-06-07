@@ -146,7 +146,6 @@ function stealthnode.register_conductnode(modname, node)
 		sounds = nodedef.sounds,
 		groups = node_groups,
 		inventory_image = nodedef.inventory_image,
-		drop = stealthnode_name,
 		mesecons = {
 			conductor = {
 				state = mesecon.state.off,
@@ -172,6 +171,7 @@ function stealthnode.register_conductnode(modname, node)
 		sounds = nodedef.sounds,
 		groups = node_groups,
 		inventory_image = nodedef.inventory_image,
+		drop = stealthnode_name,
 		mesecons = {
 			conductor = {
 				state = mesecon.state.on,
