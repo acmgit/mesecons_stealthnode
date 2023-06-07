@@ -183,7 +183,7 @@ function stealthnode.register_conductnode(modname, node)
 	})
 
 	minetest.register_craft({
-		output = stealthnode_name .. "_off" .. " 4",
+		output = stealthnode_name .. " 4",
 		recipe = {
 			{"default:tin_ingot", node_name, "default:tin_ingot"},
 			{node_name, "group:mesecon_conductor_craftable", node_name},
