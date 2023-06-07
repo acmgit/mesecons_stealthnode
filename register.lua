@@ -186,7 +186,7 @@ function stealthnode.register_conductnode(modname, node)
 		output = stealthnode_name .. " 4",
 		recipe = {
 			{"default:tin_ingot", node_name, "default:tin_ingot"},
-			{node_name, "group:mesecon_conductor_craftable", node_name},
+			{node_name, "mesecons:wire_00000000_off", node_name},
 			{"default:tin_ingot", node_name, "default:tin_ingot"},
 		}
 	})
