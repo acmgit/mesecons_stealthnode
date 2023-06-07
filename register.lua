@@ -13,6 +13,8 @@
 
 ]]--
 
+local S = stealthnode.S
+
 local function copy_table(t)
 	if type(t) ~= "table" then return end
 	local t2 = {}
@@ -42,7 +44,7 @@ function stealthnode.register_stealthnode(modname, node)
 	node_groups.mesecons_stealthnode = 1
 
 	minetest.register_node(":" .. stealthnode_name, {
-		description = "Stealthnode " .. nodedef.description,
+		description = S("Stealth") .. " " .. nodedef.description,
 		drawtype = nodedef.drawtype,
 		tiles = nodedef.tiles,
 		use_texture_alpha = nodedef.use_texture_alpha,
@@ -106,4 +108,60 @@ function stealthnode.register_stealthnode(modname, node)
 			{"default:tin_ingot", node_name, "default:tin_ingot"},
 		}
 	})
+
+end
+
+function stealthnode.register_conductnode(modname, node)
+
+	local node_name = modname .. ":" .. node
+
+	local nodedef = minetest.registered_nodes[node_name]
+
+	if not nodedef then
+		local message = "[MOD] " .. minetest.get_current_modname() .. ": "
+			.. node_name .. " not found to register a conductnode."
+		print(message)
+		minetest.log("warning", message)
+		return
+	end
+
+	local conductnode_name = "mesecons_stealthnode:" .. modname .. "_" .. node
+
+	local node_groups = copy_table(nodedef.groups) or {}
+	node_groups.mesecons_stealthnode = 1
+
+	minetest.register_node(":" .. conductnode_name, {
+		description = S("Conducting") .. " " .. nodedef.description,
+		drawtype = nodedef.drawtype,
+		tiles = nodedef.tiles,
+		use_texture_alpha = nodedef.use_texture_alpha,
+		paramtype = nodedef.paramtype,
+		paramtype2 = nodedef.paramtype2,
+		is_ground_content = false,
+		sunlight_propagates = nodedef.sunlight_propagates,
+		node_box = nodedef.node_box,
+		mesh = nodedef.mesh,
+		selection_box = nodedef.selection_box,
+		collision_box = nodedef.collision_box,
+		sounds = nodedef.sounds,
+		groups = node_groups,
+		inventory_image = nodedef.inventory_image,
+		mesecons = {
+			conductor = {
+				state = mesecon.state.off,
+				rules = mesecon.rules.alldirs,
+			}
+		},
+		on_blast = mesecon.on_blastnode,
+	})
+
+	minetest.register_craft({
+		output = conductnode_name .. " 4",
+		recipe = {
+			{"default:tin_ingot", node_name, "default:tin_ingot"},
+			{node_name, "mesecons:wire_00000000_off", node_name},
+			{"default:tin_ingot", node_name, "default:tin_ingot"},
+		}
+	})
+
 end

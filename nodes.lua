@@ -75,5 +75,6 @@ local nodes = {
 for _,value in pairs(nodes) do
 	if minetest.get_modpath(value[1]) then
 		stealthnode.register_stealthnode(value[1], value[2])
+		stealthnode.register_conductnode(value[1], value[2])
 	end
 end
