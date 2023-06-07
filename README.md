@@ -1,6 +1,6 @@
 # Mesecons Stealthnode
 
-This mod adds some new ghoststones for mesecons in minetest.<br>
+This mod adds some new ghoststones and conducting stones for mesecons in minetest.<br>
 The function to register your own ghoststones are integrated.<br>
 
 
