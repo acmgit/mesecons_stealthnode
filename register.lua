@@ -185,9 +185,9 @@ function stealthnode.register_conductnode(modname, node)
 	minetest.register_craft({
 		output = stealthnode_name .. " 4",
 		recipe = {
-			{"default:tin_ingot", node_name, "default:tin_ingot"},
-			{node_name, "mesecons:wire_00000000_off", node_name},
-			{"default:tin_ingot", node_name, "default:tin_ingot"},
+			{"mesecons:wire_00000000_off", node_name, "mesecons:wire_00000000_off"},
+			{node_name, "default:tin_ingot", node_name},
+			{"mesecons:wire_00000000_off", node_name, "mesecons:wire_00000000_off"},
 		}
 	})
 
