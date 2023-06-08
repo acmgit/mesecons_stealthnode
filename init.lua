@@ -11,7 +11,7 @@ stealthnode = {}
 stealthnode.version = "1"
 stealthnode.revision = "6"
 
-local modpath = minetest.get_modpath("mesecons_stealthnodes")
+local modpath = minetest.get_modpath("mesecons_stealthnode")
 local S = minetest.get_translator(minetest.get_current_modname())
 
 stealthnode.S = S
